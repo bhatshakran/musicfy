@@ -10,7 +10,7 @@ import {
   playlistsAction,
   searchAction,
 } from '../types';
-const Sidebar = () => {
+const Sidebar: React.FC = () => {
   const dispatch = useContext(TabDispatchContext);
   return (
     <div className='sidebar d-flex flex-column align-items-start ps-4 h-100 justify-content-center gap-5 opensansbold text-white fs-5 '>

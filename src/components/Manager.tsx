@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { TabContext } from '../context/activeContext';
 
-const Manager = () => {
+const Manager: React.FC = () => {
   const activeTab = useContext(TabContext);
   if (activeTab?.value === 'home') {
     return <div>Home</div>;
