@@ -2,7 +2,7 @@ import listening from '../images/listening.svg';
 
 const Banner = () => {
   return (
-    <div className='banner h-30  w-auto flex-grow-1 ps-2 pt-2 d-flex justify-content-between align-items-center text-white opensansbold overflow-hidden'>
+    <div className='banner h-30  w-100 flex-grow-1 ps-2 pt-2 d-flex justify-content-between align-items-center text-white opensansbold overflow-hidden'>
       <div className=' h-100  '>
         <img src={listening} alt='' height={'100%'} />
       </div>
