@@ -1,0 +1,52 @@
+/* Import all of Bootstrap's CSS */
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/utilities';
+@import './sizing.scss';
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'height':
+      map-merge(
+        map-get($utilities, 'height'),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, 'height'), 'values'),
+              (
+                30: 30%,
+              )
+            ),
+        )
+      ),
+  )
+);
+@import 'bootstrap/scss/utilities/api';
+
+@font-face {
+  font-family: 'opensansregular';
+  src: url('./fonts/open-sans/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'opensansbold';
+  src: url('./fonts/open-sans/OpenSans-Bold.ttf') format('truetype');
+}
+
+.sidebar {
+  background-color: #5854d5;
+  min-width: 200px;
+  width: 200px;
+}
+
+.opensansregular {
+  font-family: opensansregular;
+}
+.opensansbold {
+  font-family: opensansbold;
+}
+
+.banner {
+  background-color: #f7b1a5;
+}
+/* f7b1a5 */
