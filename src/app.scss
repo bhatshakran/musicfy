@@ -22,6 +22,25 @@ $utilities: map-merge(
   )
 );
 
+$utilities: map-merge(
+  $utilities,
+  (
+    'width':
+      map-merge(
+        map-get($utilities, 'width'),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, 'width'), 'values'),
+              (
+                15: 15%,
+              )
+            ),
+        )
+      ),
+  )
+);
+
 @import 'bootstrap/scss/utilities/api';
 
 @font-face {
@@ -53,6 +72,10 @@ $utilities: map-merge(
 .hover-bg-white:hover {
   background-color: rgba(255, 255, 255, 0.8) !important;
   color: black !important;
+  transition: all 0.1s ease-in-out;
+}
+.hover-bg-light:hover {
+  background-color: rgba(128, 128, 128, 0.647) !important;
   transition: all 0.1s ease-in-out;
 }
 

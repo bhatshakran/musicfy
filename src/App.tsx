@@ -12,9 +12,9 @@ const App: React.FC = () => {
   return (
     <TabContext.Provider value={activeTab}>
       <TabDispatchContext.Provider value={dispatch}>
-        <div className='App vh-100 d-flex'>
+        <div className='App vh-100 d-flex '>
           <Sidebar />
-          <div className='w-100'>
+          <div className='w-100 overflow-hidden vh-100'>
             <Banner />
             <Manager />
           </div>
