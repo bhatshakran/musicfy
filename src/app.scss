@@ -74,8 +74,13 @@ $utilities: map-merge(
   color: black !important;
   transition: all 0.1s ease-in-out;
 }
-.hover-bg-light:hover {
-  background-color: rgba(128, 128, 128, 0.647) !important;
+.hover-bg-white:hover {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  color: black !important;
+  transition: all 0.1s ease-in-out;
+}
+.hover-fill-orange:hover {
+  fill: orange !important;
   transition: all 0.1s ease-in-out;
 }
 

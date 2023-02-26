@@ -21,7 +21,6 @@ const Search: React.FC = () => {
   const [term, setTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [resultTracks, setResultTracks] = useState([]);
-  // const [resultArtists, setResultArtists] = useState([])
 
   const debouncedSearch = useMemo(
     () =>

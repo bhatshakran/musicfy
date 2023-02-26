@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+// import { useAppSelector } from '../app/hooks';
 import { axiosInstance } from '../axios';
 import Grid from './Grid';
 
 const Home = () => {
   const [tracks, setTracks] = useState([]);
+
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
