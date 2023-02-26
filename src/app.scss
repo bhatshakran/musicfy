@@ -21,6 +21,7 @@ $utilities: map-merge(
       ),
   )
 );
+
 @import 'bootstrap/scss/utilities/api';
 
 @font-face {
@@ -46,7 +47,17 @@ $utilities: map-merge(
   font-family: opensansbold;
 }
 
-.banner {
-  background-color: #f7b1a5;
+// .banner {
+//   background-color: #f7b1a5;
+// }
+.hover-bg-white:hover {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  color: black !important;
+  transition: all 0.1s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #f7b1a5;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #f7b1a5;
 }
 /* f7b1a5 */
