@@ -95,7 +95,7 @@ const Search: React.FC = () => {
       </div>
       {/* result cards */}
       <div>
-        <Grid tracks={resultTracks} nested='true' />
+        <Grid tracks={resultTracks} nested='true' type='search' />
       </div>
     </div>
   );

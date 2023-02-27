@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import {
   addToFavsLs,
@@ -11,10 +11,10 @@ import find from 'lodash.find';
 const Card = ({ data }: any) => {
   const favouritesState = useAppSelector((state) => state.favourites);
 
-  const getInitialState = () => {
+  const getInitialState = useCallback(() => {
     const exists = find(favouritesState, { title: data.title });
     return exists;
-  };
+  }, [data.title, favouritesState]);
 
   const [favState, setFavState] = useState(() => getInitialState());
 
@@ -33,8 +33,12 @@ const Card = ({ data }: any) => {
     }
     setFavState(!favState);
   };
+
+  useEffect(() => {
+    setFavState(getInitialState());
+  }, [favouritesState, getInitialState]);
   return (
-    <div className='card p-0 mx-2' style={{ border: 'none' }}>
+    <div className='card p-0 ' style={{ border: 'none', width: '120px' }}>
       <div className='position-relative '>
         <img
           src={data.share ? data.share.image : data.image}

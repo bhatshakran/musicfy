@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import favouritesReducer from './features/favourites/favouriteSlice';
+import playlistsReducer from './features/playlists/playlistsSlice';
 
 export const store = configureStore({
   reducer: {
     favourites: favouritesReducer,
+    playlists: playlistsReducer,
   },
 });
 

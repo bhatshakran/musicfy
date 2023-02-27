@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { TabContext } from '../context/activeContext';
 import Favourites from './Favourites';
 import Home from './Home';
+import Playlists from './Playlists';
 import Search from './Search';
 
 const Manager: React.FC = () => {
@@ -10,7 +11,7 @@ const Manager: React.FC = () => {
     return <Home />;
   } else if (activeTab?.value === 'search') return <Search />;
   else if (activeTab?.value === 'favourites') return <Favourites />;
-  else if (activeTab?.value === 'playlists') return <div>Playlists</div>;
+  else if (activeTab?.value === 'playlists') return <Playlists />;
   else return <div>Home tab</div>;
 };
 

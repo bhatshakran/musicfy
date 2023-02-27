@@ -1,34 +1,96 @@
-import { useCallback, useEffect, useState } from 'react';
-// import { useAppSelector } from '../app/hooks';
-import { axiosInstance } from '../axios';
+import { useContext, useEffect, useState } from 'react';
+import { useAppSelector } from '../app/hooks';
+import { BsExclamationCircleFill } from 'react-icons/bs';
 import Grid from './Grid';
+import { TabDispatchContext } from '../context/activeContext';
+import { playlistsAction, searchAction } from '../types';
+import isEmpty from 'lodash.isempty';
 
 const Home = () => {
-  const [tracks, setTracks] = useState([]);
-  const fetch = useCallback(async () => {
-    try {
-      const res = await axiosInstance.get('charts/track', {
-        // signal: signal,
-        params: {
-          // key: '484129036',
-          locale: 'en-US',
-        },
-      });
-      setTracks(res.data.tracks);
-    } catch (error) {
-      throw new Error('Could not complete request');
-    }
-  }, []);
+  // const [tracks, setTracks] = useState([]);
+  const dispatch = useContext(TabDispatchContext);
+
+  const favouritesState = useAppSelector((state) => state.favourites);
+  const playlistsState = useAppSelector((state) => state.playlists);
+  const [favs, setFavs] = useState(() => favouritesState);
+  const [playlists, setPlaylists] = useState(() => playlistsState);
+
+  console.log(isEmpty(Object.values(playlists)));
 
   useEffect(() => {
-    /*  const controller = new AbortController();
-    const signal = controller.signal; */
-    fetch();
+    setFavs(favouritesState);
+    setPlaylists(playlistsState);
+  }, [favouritesState, playlistsState]);
 
-    // return () => controller.abort();
-  }, [fetch]);
-
-  return <Grid tracks={tracks} />;
+  return (
+    <div
+      className='d-flex flex-wrap  overflow-scroll'
+      style={{ height: '480px' }}
+    >
+      <div className='w-100  max-h-50'>
+        <h5 className='ms-5 mt-5 opensansbold'>Your favourites</h5>
+        {favs.length === 0 || favs.length === 'undefined' ? (
+          <div className='mx-5 d-flex flex-column justify-content-center align-items-center'>
+            <BsExclamationCircleFill style={{ height: '50px', scale: '2' }} />
+            <p className='opensansregular'>
+              You dont have any favourites yet. You can add some by searching
+              for songs and starring them.
+            </p>
+            <button
+              type='button'
+              className='btn border-ourpink opensansregular'
+              onClick={() => {
+                dispatch?.(searchAction);
+              }}
+            >
+              {' '}
+              Go to search
+            </button>
+          </div>
+        ) : (
+          <Grid tracks={favs} type='favourites'></Grid>
+        )}
+      </div>
+      <div className='w-100 max-h-50'>
+        <h5 className='ms-5 mt-2 opensansbold'>Your playlists</h5>
+        {/* <Grid tracks={favouritesState}></Grid> */}
+        {playlists.length === 0 || !playlists ? (
+          <div className='mx-5 d-flex flex-column justify-content-center align-items-center'>
+            <BsExclamationCircleFill style={{ height: '50px', scale: '2' }} />
+            <p className='opensansregular'>
+              You dont have any playlists yet. You can create a playlist by
+              adding songs to it.
+            </p>
+            <button
+              type='button'
+              className='btn border-ourpink opensansregular'
+              onClick={() => {
+                dispatch?.(playlistsAction);
+              }}
+            >
+              {' '}
+              Create a playlist
+            </button>
+          </div>
+        ) : (
+          playlists.map((playlist: any, id: number) => {
+            console.log(playlistsState);
+            return (
+              <div key={id} className='ms-5'>
+                <h6>{playlist.playlistName}</h6>
+                <p>
+                  No of songs:{' '}
+                  {playlist.playlistSongs
+                    ? playlist.playlistSongs.length
+                    : null}
+                </p>
+              </div>
+            );
+          })
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Home;

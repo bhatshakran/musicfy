@@ -13,7 +13,7 @@ import {
 const Sidebar: React.FC = () => {
   const dispatch = useContext(TabDispatchContext);
   return (
-    <div className='sidebar d-flex flex-column align-items-center h-100 justify-content-center gap-4 opensansbold text-white  '>
+    <div className='sidebar d-flex flex-column align-items-center h-100 justify-content-center gap-4 opensansbold  '>
       <div
         className='d-flex gap-2 align-items-center w-100  ps-5 py-2 hover-bg-white'
         role='button'
