@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { addToFavsLs } from '../app/features/favourites/favouriteSlice';
+import {
+  addToFavsLs,
+  removeFromLs,
+} from '../app/features/favourites/favouriteSlice';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { Tooltip } from '../utilities/Tooltip';
-import includes from 'lodash.includes';
+import find from 'lodash.find';
 
 const Card = ({ data }: any) => {
   const favouritesState = useAppSelector((state) => state.favourites);
 
   const getInitialState = () => {
-    const exists = includes(favouritesState, data.title);
+    const exists = find(favouritesState, { title: data.title });
     return exists;
   };
 
@@ -19,14 +22,25 @@ const Card = ({ data }: any) => {
 
   const updateLsFavState = () => {
     if (!favState) {
-      dispatch(addToFavsLs(data.title));
+      const obj = {
+        title: data.title,
+        image: data.share.image,
+        subtitle: data.subtitle,
+      };
+      dispatch(addToFavsLs(obj));
+    } else {
+      dispatch(removeFromLs(data.title));
     }
     setFavState(!favState);
   };
   return (
     <div className='card p-0 mx-2' style={{ border: 'none' }}>
       <div className='position-relative '>
-        <img src={data.share.image} className='card-img-top' alt='...' />
+        <img
+          src={data.share ? data.share.image : data.image}
+          className='card-img-top'
+          alt='...'
+        />
         <div
           className='position-absolute  top-0 end-0 fs-5  z-1'
           onClick={() => updateLsFavState()}

@@ -10,17 +10,18 @@ const App: React.FC = () => {
   const [activeTab, dispatch] = useReducer(tabReducer, initialTabState);
 
   return (
-    <div className='App vh-100 d-flex '>
-      <Sidebar />
-      <div className='w-100 overflow-hidden vh-100'>
-        <Banner />
-        <TabContext.Provider value={activeTab}>
-          <TabDispatchContext.Provider value={dispatch}>
+    <TabContext.Provider value={activeTab}>
+      <TabDispatchContext.Provider value={dispatch}>
+        <div className='App vh-100 d-flex '>
+          <Sidebar />
+          <div className='w-100 overflow-hidden vh-100'>
+            <Banner />
+
             <Manager />
-          </TabDispatchContext.Provider>
-        </TabContext.Provider>
-      </div>
-    </div>
+          </div>
+        </div>
+      </TabDispatchContext.Provider>
+    </TabContext.Provider>
   );
 };
 

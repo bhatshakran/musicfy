@@ -22,7 +22,7 @@ export const favouritesSlice = createSlice({
     ? JSON.parse(localStorage.getItem('favourites') as string)
     : initialState,
   reducers: {
-    addToFavsLs: (state, action: PayloadAction) => {
+    addToFavsLs: (state, action) => {
       const item = action.payload;
       console.log(item);
 
@@ -35,15 +35,26 @@ export const favouritesSlice = createSlice({
         favourites.push(item);
         localStorage.setItem('favourites', JSON.stringify(favourites));
       }
-      state.favourites = JSON.parse(
-        localStorage.getItem('favourites') as string
-      );
-      console.log(localStorage.getItem('favourites'));
+      state = JSON.parse(localStorage.getItem('favourites') as string);
+      return state;
+    },
+
+    removeFromLs: (state, action: PayloadAction) => {
+      const item = action.payload;
+      if (localStorage.getItem('favourites') !== null) {
+        const ls = JSON.parse(localStorage.getItem('favourites') as string);
+
+        const newLs = ls.filter((el: any) => el.title !== item);
+        console.log(newLs);
+        localStorage.setItem('favourites', JSON.stringify(newLs));
+        state = JSON.parse(localStorage.getItem('favourites') as string);
+        return state;
+      }
     },
   },
 });
 
-export const { addToFavsLs } = favouritesSlice.actions;
+export const { addToFavsLs, removeFromLs } = favouritesSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.favourites.value;
