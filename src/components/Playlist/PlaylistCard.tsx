@@ -10,9 +10,9 @@ const PlaylistCard = ({ data }: any) => {
         <img src={plhd} className='card-img-top' alt='...' />
         <div className='card-body p-1'>
           <h5 className='card-title fs-6 w-100 '>{data.playlistName}</h5>
-          <p>
+          <small className=''>
             No of songs: {data.playlistSongs ? data.playlistSongs.length : null}
-          </p>
+          </small>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { BiSearch } from 'react-icons/bi';
 import { axiosInstance } from '../axios';
 import debounce from 'lodash.debounce';
 import Grid from './Grid';
+import { Loading } from './Loading';
 
 export const sendNetworkRequest = async (url: string, term: string) => {
   const options = {
@@ -22,6 +23,8 @@ const Search: React.FC = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [resultTracks, setResultTracks] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   const debouncedSearch = useMemo(
     () =>
       debounce(async (val: string) => {
@@ -29,6 +32,7 @@ const Search: React.FC = () => {
         console.log(res);
         if (res) {
           setSuggestions(res.hints);
+          setLoading(false);
         }
       }, 750),
     []
@@ -37,16 +41,20 @@ const Search: React.FC = () => {
   const setInput = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       setTerm(e.target.value);
+      setLoading(true);
       debouncedSearch(e.target.value);
     },
     [debouncedSearch]
   );
 
   const searchForTerm = async (term: string) => {
+    setLoading(true);
     const res = await sendNetworkRequest('search', term);
+    setLoading(false);
     console.log(res);
     setResultTracks(res.tracks.hits);
   };
+
   return (
     <div className=' p-5 '>
       <div className='input-group '>
@@ -74,8 +82,16 @@ const Search: React.FC = () => {
         </button>
       </div>
       {/* search suggestions */}
-      <div className='mx-5   '>
-        {suggestions &&
+      <div className='mx-5  '>
+        {loading ? (
+          <div
+            className='d-flex align-items-center justify-center'
+            style={{ height: '300px' }}
+          >
+            <Loading />
+          </div>
+        ) : (
+          suggestions &&
           suggestions.map((el: any, id: number) => {
             return (
               <div
@@ -91,7 +107,8 @@ const Search: React.FC = () => {
                 {el.term}
               </div>
             );
-          })}
+          })
+        )}
       </div>
       {/* result cards */}
       <div>

@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <div
-      className='home d-flex flex-wrap  overflow-scroll'
+      className='home d-flex flex-wrap  overflow-scroll '
       style={{ height: '600px' }}
     >
       <div className='w-100  max-h-50'>
