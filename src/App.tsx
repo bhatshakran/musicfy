@@ -1,27 +1,34 @@
-import React, { useReducer } from 'react';
-import Banner from './components/Banner';
-import Manager from './components/Manager';
-import Sidebar from './components/Sidebar';
-import { TabContext, TabDispatchContext } from './context/activeContext';
-import tabReducer from './context/tabReducer';
-import { initialTabState } from './types';
+import { ReactKeycloakProvider } from '@react-keycloak/web';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Nav from './components/Nav';
+
+import PrivateRoute from './helpers/PrivateRoute';
+import keycloak from './keycloak';
+import Homepage from './pages/Homepage';
 
 const App: React.FC = () => {
-  const [activeTab, dispatch] = useReducer(tabReducer, initialTabState);
-
   return (
-    <TabContext.Provider value={activeTab}>
-      <TabDispatchContext.Provider value={dispatch}>
-        <div className='App vh-100 d-flex '>
-          <Sidebar />
-          <div className='w-100 overflow-hidden vh-100'>
-            <Banner />
-
-            <Manager />
-          </div>
-        </div>
-      </TabDispatchContext.Provider>
-    </TabContext.Provider>
+    <>
+      <ReactKeycloakProvider
+        authClient={keycloak}
+        // initOptions={{ onLoad: 'login-required' }}
+      >
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Nav />} />
+            <Route
+              path='/homepage'
+              element={
+                <PrivateRoute>
+                  <Homepage />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </ReactKeycloakProvider>
+    </>
   );
 };
 

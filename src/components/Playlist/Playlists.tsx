@@ -151,6 +151,14 @@ const Playlists = () => {
       {playlistsState && playlistsState.length === 0 ? (
         <div className='px-5'>
           <p>You dont have any playlists yet.</p>
+          <button
+            type='button'
+            className='btn border-ourpink mb-5'
+            data-bs-toggle='modal'
+            data-bs-target='#exampleModal'
+          >
+            Create a playlist
+          </button>
         </div>
       ) : (
         <div className='mx-5'>
