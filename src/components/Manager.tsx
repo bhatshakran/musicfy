@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { TabContext } from '../context/activeContext';
 import Favourites from './Favourites';
 import Home from './Home';
-import Playlists from './Playlists';
+import Playlists from './Playlist/Playlists';
 import Search from './Search';
 
 const Manager: React.FC = () => {

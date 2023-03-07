@@ -1,14 +1,13 @@
 import Card from './Card';
 
 const Grid = ({ tracks, nested = false, type }: any) => {
-  console.log(tracks);
+  if (type === 'playlists') {
+    tracks.map((el: any) => console.log(el));
+  }
   function conditionalRender() {
-    if (type === 'favourites') {
-      return tracks.map((track: any, id: number) => {
-        if (id < 7) {
-          if (nested) return <Card key={track.track.key} data={track.track} />;
-          else return <Card key={id} data={track} />;
-        } else return null;
+    if (type === 'playlists') {
+      return tracks.map((playlist: any, id: number) => {
+        return <Card data={playlist} key={id} type={type} />;
       });
     } else {
       return tracks.map((track: any, id: number) => {

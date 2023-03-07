@@ -1,9 +1,10 @@
 import { ChangeEvent, useState } from 'react';
 import { IoIosAddCircleOutline } from 'react-icons/io';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { addToPlaylistsLs } from '../app/features/playlists/playlistsSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { addToPlaylistsLs } from '../../app/features/playlists/playlistsSlice';
 import { TiTick } from 'react-icons/ti';
 import find from 'lodash.find';
+import PlaylistCard from './PlaylistCard';
 
 const Playlists = () => {
   const playlistsState = useAppSelector((state) => state.playlists);
@@ -166,15 +167,9 @@ const Playlists = () => {
             playlistsState.map((playlist: any, id: number) => {
               console.log(playlistsState);
               return (
-                <div key={id}>
-                  <h6>{playlist.playlistName}</h6>
-                  <p>
-                    No of songs:{' '}
-                    {playlist.playlistSongs
-                      ? playlist.playlistSongs.length
-                      : null}
-                  </p>
-                </div>
+                <PlaylistCard key={id} data={playlist} />
+
+                // <div key={id}>
               );
             })}
         </div>

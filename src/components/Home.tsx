@@ -73,20 +73,13 @@ const Home = () => {
             </button>
           </div>
         ) : (
-          playlists.map((playlist: any, id: number) => {
+          /*  playlists.map((playlist: any, id: number) => {
             console.log(playlistsState);
-            return (
-              <div key={id} className='ms-5'>
-                <h6>{playlist.playlistName}</h6>
-                <p>
-                  No of songs:{' '}
-                  {playlist.playlistSongs
-                    ? playlist.playlistSongs.length
-                    : null}
-                </p>
-              </div>
-            );
-          })
+            return ( */
+          <Grid tracks={playlists} type='playlists'></Grid>
+
+          /*  );
+          }) */
         )}
       </div>
     </div>
