@@ -162,16 +162,18 @@ const Playlists = () => {
           >
             Create a playlist
           </button>
-          {playlistsState &&
-            playlistsState.length > 0 &&
-            playlistsState.map((playlist: any, id: number) => {
-              console.log(playlistsState);
-              return (
-                <PlaylistCard key={id} data={playlist} />
+          <div className='d-flex gap-2 flex-wrap'>
+            {playlistsState &&
+              playlistsState.length > 0 &&
+              playlistsState.map((playlist: any, id: number) => {
+                console.log(playlistsState);
+                return (
+                  <PlaylistCard key={id} data={playlist} />
 
-                // <div key={id}>
-              );
-            })}
+                  // <div key={id}>
+                );
+              })}
+          </div>
         </div>
       )}
     </div>

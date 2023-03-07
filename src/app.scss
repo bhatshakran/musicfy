@@ -53,8 +53,12 @@ $utilities: map-merge(
   src: url('./fonts/open-sans/OpenSans-Bold.ttf') format('truetype');
 }
 
+.home {
+  background-color: white;
+}
+
 .sidebar {
-  background-color: #5854d5;
+  background-color: #c1818e;
   min-width: 200px;
   width: 200px;
   color: rgba(255, 255, 255, 0.645);
@@ -67,9 +71,9 @@ $utilities: map-merge(
   font-family: opensansbold;
 }
 
-// .banner {
-//   background-color: #f7b1a5;
-// }
+.banner {
+  height: 100px;
+}
 .hover-bg-white:hover {
   background-color: rgba(255, 255, 255, 0.8) !important;
   color: black !important;
@@ -86,7 +90,11 @@ $utilities: map-merge(
 }
 
 .form-control:focus {
-  border-color: #f7b1a5;
+  border-color: #c1818e;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #f7b1a5;
+}
+
+.card {
+  height: 220px !important;
 }
 /* f7b1a5 */

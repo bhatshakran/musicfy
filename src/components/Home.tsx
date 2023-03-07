@@ -24,11 +24,14 @@ const Home = () => {
 
   return (
     <div
-      className='d-flex flex-wrap  overflow-scroll'
-      style={{ height: '480px' }}
+      className='home d-flex flex-wrap  overflow-scroll'
+      style={{ height: '600px' }}
     >
       <div className='w-100  max-h-50'>
-        <h5 className='ms-5 mt-5 opensansbold'>Your favourites</h5>
+        <h5 className='ms-5 mt-5 opensansbold'>
+          Your favourites
+          <hr className='text-ourpink'></hr>
+        </h5>
         {isEmpty(favs) ? (
           <div className='mx-5 d-flex flex-column justify-content-center align-items-center'>
             <BsExclamationCircleFill style={{ height: '50px', scale: '2' }} />
@@ -52,8 +55,10 @@ const Home = () => {
         )}
       </div>
       <div className='w-100 max-h-50'>
-        <h5 className='ms-5 mt-2 opensansbold'>Your playlists</h5>
-        {/* <Grid tracks={favouritesState}></Grid> */}
+        <h5 className='ms-5 mt-2 opensansbold'>
+          Your playlists
+          <hr className='text-ourpink'></hr>
+        </h5>
         {isEmpty(playlists) ? (
           <div className='mx-5 d-flex flex-column justify-content-center align-items-center'>
             <BsExclamationCircleFill style={{ height: '50px', scale: '2' }} />
@@ -73,13 +78,7 @@ const Home = () => {
             </button>
           </div>
         ) : (
-          /*  playlists.map((playlist: any, id: number) => {
-            console.log(playlistsState);
-            return ( */
-          <Grid tracks={playlists} type='playlists'></Grid>
-
-          /*  );
-          }) */
+          <Grid tracks={playlists} type='playlists' />
         )}
       </div>
     </div>

@@ -44,7 +44,11 @@ const Card = ({ data, type = 'favourites' }: any) => {
     return <PlaylistCard data={data} />;
   } else
     return (
-      <div className='card p-0 ' style={{ border: 'none', width: '120px' }}>
+      <div
+        className='card p-0 shadow-sm'
+        role='button'
+        style={{ border: 'none', width: '120px' }}
+      >
         <div className='position-relative '>
           <img
             src={data.share ? data.share.image : data.image}
@@ -66,9 +70,12 @@ const Card = ({ data, type = 'favourites' }: any) => {
             </Tooltip>
           </div>
         </div>
-        <div className='card-body p-1'>
+        <div className='card-body p-1 '>
           <h5 className='card-title fs-6 w-100 '>{data.title}</h5>
-          <h6 className='card-subtitle text-muted' style={{ fontSize: '12px' }}>
+          <h6
+            className='card-subtitle text-muted '
+            style={{ fontSize: '12px' }}
+          >
             {data.subtitle}
           </h6>
 
