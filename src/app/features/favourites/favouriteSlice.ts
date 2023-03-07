@@ -2,18 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import type { RootState } from '../../store';
 
 // Define a type for the slice state
-interface FavouriteState {
-  favourites: Favourite[];
-}
-
-interface Favourite {
-  name: string;
-}
 
 // Define the initial state using that type
-const initialState: FavouriteState = {
-  favourites: [],
-};
+const initialState: string[] = [];
 
 export const favouritesSlice = createSlice({
   name: 'favourites',

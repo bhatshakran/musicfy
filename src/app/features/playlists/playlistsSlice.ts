@@ -2,24 +2,19 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import type { RootState } from '../../store';
 
 // Define a type for the slice state
-interface PlaylistsState {
-  playlists: Playlist[];
-}
 
-interface Playlist {
-  songs: Song[];
-}
+// interface Song {
+//   name: string;
+//   image: string;
+//   subtitle: string;
+// }
 
 interface Song {
-  name: string;
-  image: string;
-  subtitle: string;
+  [index: number]: { name: string; image: string; subtitle: string };
 }
 
 // Define the initial state using that type
-const initialState: PlaylistsState = {
-  playlists: [],
-};
+const initialState: Song = [];
 
 export const playlistsSlice = createSlice({
   name: 'playlists',

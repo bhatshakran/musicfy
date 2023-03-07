@@ -30,7 +30,7 @@ const Search: React.FC = () => {
         if (res) {
           setSuggestions(res.hints);
         }
-      }, 500),
+      }, 750),
     []
   );
 

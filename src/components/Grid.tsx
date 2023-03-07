@@ -1,6 +1,7 @@
 import Card from './Card';
 
 const Grid = ({ tracks, nested = false, type }: any) => {
+  console.log(tracks);
   function conditionalRender() {
     if (type === 'favourites') {
       return tracks.map((track: any, id: number) => {

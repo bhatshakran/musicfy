@@ -15,7 +15,7 @@ const Home = () => {
   const [favs, setFavs] = useState(() => favouritesState);
   const [playlists, setPlaylists] = useState(() => playlistsState);
 
-  console.log(isEmpty(Object.values(playlists)));
+  console.log(favs);
 
   useEffect(() => {
     setFavs(favouritesState);
@@ -29,7 +29,7 @@ const Home = () => {
     >
       <div className='w-100  max-h-50'>
         <h5 className='ms-5 mt-5 opensansbold'>Your favourites</h5>
-        {favs.length === 0 || favs.length === 'undefined' ? (
+        {isEmpty(favs) ? (
           <div className='mx-5 d-flex flex-column justify-content-center align-items-center'>
             <BsExclamationCircleFill style={{ height: '50px', scale: '2' }} />
             <p className='opensansregular'>
@@ -54,7 +54,7 @@ const Home = () => {
       <div className='w-100 max-h-50'>
         <h5 className='ms-5 mt-2 opensansbold'>Your playlists</h5>
         {/* <Grid tracks={favouritesState}></Grid> */}
-        {playlists.length === 0 || !playlists ? (
+        {isEmpty(playlists) ? (
           <div className='mx-5 d-flex flex-column justify-content-center align-items-center'>
             <BsExclamationCircleFill style={{ height: '50px', scale: '2' }} />
             <p className='opensansregular'>
