@@ -2,7 +2,10 @@ import plhd from '../../images/plhd.webp';
 
 const PlaylistCard = ({ data }: any) => {
   return (
-    <div className='card p-0 ' style={{ border: 'none', width: '120px' }}>
+    <div
+      className='card p-0 shadow-sm'
+      style={{ border: 'none', width: '120px' }}
+    >
       <div className='position-relative '>
         <img src={plhd} className='card-img-top' alt='...' />
         <div className='card-body p-1'>
