@@ -58,3 +58,10 @@ docker-compose command line in the build.sh file.
 The default port for the React UI is [3000](http://localhost:3000/) and the Keycloak UI
 is [8080](http://locahost:8080/). Use the `docker ps` command to determine the
 actual ports for your system.
+
+# Thanks
+
+Thanks to these two wonderful developers, their code was a lof of help:
+
+[MichaelJThomas](https://github.com/MitchellJThomas/keycloak-react-app)
+[Eabykov](https://github.com/eabykov/keycloak-compose/blob/main/compose.yml)
