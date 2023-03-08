@@ -1,6 +1,7 @@
-# keycloak-react-app
+# Musicfy
 
-A single page web React app which utilizes the [Keycloak javascript adapter](https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter) .
+A single page web React app which utilizes the [Keycloak javascript adapter](https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter) and [Shazam API](https://rapidapi.com/apidojo/api/shazam/) for fetching music tracks.
+You can create playlists, add songs to favourites and also search for songs.
 
 Docker compose is used to start nginx and Keycloak. Once its running you
 now can experiment with the React code and learn about Keycloak
@@ -34,7 +35,7 @@ Email.
 
 To develop on your local system, you will need to have [Docker
 Composed installed](https://docs.docker.com/compose/install/) and a
-your favorite editor... [I like Emacs for macOS](https://emacsformacos.com/) (shameless plug).
+your favorite editor...
 
 Docker Compose will download the [Keycloak
 image](https://hub.docker.com/r/jboss/keycloak/) to run the Keycloak
