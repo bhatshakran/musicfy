@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+  app:
+    image: dockerized-react
+    build: .
+    ports:
+      - 3000:80
+    depends_on:
+      - keycloak
+  keycloak:
+    # Keycloak 19.0.
+    container_name: keycloak-musicfy-container
+    image: quay.io/keycloak/keycloak:19.0.0
+    volumes:
+      - ./realm-export.json:/opt/keycloak/data/import/realm-export.json:ro
+    environment:
+      KEYCLOAK_IMPORT: /tmp/realm-export.json
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - 8080:8080
+    command: ['start-dev', '--import-realm']

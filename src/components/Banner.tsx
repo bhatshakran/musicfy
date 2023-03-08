@@ -4,7 +4,7 @@ import music from '../images/musiclofi.png';
 
 const Banner: React.FC = () => {
   return (
-    <div className='banner bg-ourpink  w-100 flex-grow-1 ps-3 pt-2 d-flex justify-content-between align-items-center text-white opensansbold mb-5'>
+    <div className='banner   w-100 flex-grow-1 ps-3 pt-2 d-flex justify-content-between align-items-center text-white opensansbold mb-5'>
       <div className=' h-100  '>
         <img src={music} alt='' height={'160%'} />
       </div>

@@ -1,7 +1,6 @@
 /* Import all of Bootstrap's CSS */
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import 'bootstrap/scss/utilities';
-@import './sizing.scss';
 
 $utilities: map-merge(
   $utilities,
@@ -73,6 +72,11 @@ $utilities: map-merge(
 
 .banner {
   height: 100px;
+  background-color: #d2a3ad;
+}
+
+.ourbtn {
+  border-color: #d2a3ad;
 }
 .hover-bg-white:hover {
   background-color: rgba(255, 255, 255, 0.8) !important;

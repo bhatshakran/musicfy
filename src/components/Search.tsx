@@ -75,7 +75,7 @@ const Search: React.FC = () => {
         />
         <button
           type='button'
-          className='btn btn-ourpink text-white'
+          className='btn ourbtn text-white'
           onClick={() => searchForTerm(term)}
         >
           Search
