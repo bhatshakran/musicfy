@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+# keycloak-react-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A single page web React app which utilizes the [Keycloak javascript adapter](https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter) .
 
-## Available Scripts
+Docker compose is used to start nginx and Keycloak. Once its running you
+now can experiment with the React code and learn about Keycloak
+features using its administration UI.
 
-In the project directory, you can run:
+# Getting started
 
-### `npm start`
+To run the React app built from this repository, you will need to have [Docker
+Composed installed](https://docs.docker.com/compose/install/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Start the nginx server that serves the React app using the provided [app.sh](app.sh) script.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## The environment and logging in
 
-### `npm test`
+When the docker compose images are running the end result is a
+Keycloak server with a `Musicfy Realm` and a `musicfyclient` client
+defined in that realm.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Create a user in the Keycloak `Musicfy Realm` using the [Keycloak
+admin UI](http://localhost:8080/) so that you can view the `secured
+component` of the React UI** The password for the `admin` user can be found in the
+[docker-compose-run.yaml](docker-compose.yaml) file.
 
-### `npm run build`
+Visit the [React UI](http://localhost:3000/) with a browser and you should see a
+link to the `secured component`(homepage of Musicfy). Clicking on that link will re-direct your
+browser to the Keycloak server. Enter the user and password you
+created above and the UI changes to reveal secured content e.g. the user Name and
+Email.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Making changes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To develop on your local system, you will need to have [Docker
+Composed installed](https://docs.docker.com/compose/install/) and a
+your favorite editor... [I like Emacs for macOS](https://emacsformacos.com/) (shameless plug).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Docker Compose will download the [Keycloak
+image](https://hub.docker.com/r/jboss/keycloak/) to run the Keycloak
+server and a Postgres database.
 
-### `npm run eject`
+Building the image locally can be done using the provided
+[build-run.sh](build-run.sh) script. You may want to edit it to
+change system specific details such as open port numbers.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+If you make changes to Keycloak, particularly changes to the OIDC
+client attributes you may need to replace the [keycloak.json](keycloak.json) file with
+the one downloaded from the Keycloak server.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The password for the `admin` user can be found in the
+[docker-compose.yaml](docker-compose.yaml) file. Both the username
+and password are configured via environment variables which can be
+changed either in the docker-compose.yaml file or on the
+docker-compose command line in the build.sh file.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The default port for the React UI is [3000](http://localhost:3000/) and the Keycloak UI
+is [8080](http://locahost:8080/). Use the `docker ps` command to determine the
+actual ports for your system.
