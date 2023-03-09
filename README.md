@@ -45,10 +45,6 @@ Building the image locally can be done using the provided
 [build-run.sh](build-run.sh) script. You may want to edit it to
 change system specific details such as open port numbers.
 
-If you make changes to Keycloak, particularly changes to the OIDC
-client attributes you may need to replace the [keycloak.json](keycloak.json) file with
-the one downloaded from the Keycloak server.
-
 The password for the `admin` user can be found in the
 [docker-compose.yaml](docker-compose.yaml) file. Both the username
 and password are configured via environment variables which can be
@@ -64,4 +60,5 @@ actual ports for your system.
 Thanks to these two wonderful developers, their code was a lof of help:
 
 [MichaelJThomas](https://github.com/MitchellJThomas/keycloak-react-app)
+
 [Eabykov](https://github.com/eabykov/keycloak-compose/blob/main/compose.yml)
