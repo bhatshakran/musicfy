@@ -1,9 +1,6 @@
 import Card from './Card';
 
 const Grid = ({ tracks, nested = false, type, more = false }: any) => {
-  if (type === 'playlists') {
-    tracks.map((el: any) => console.log(el));
-  }
   function conditionalRender() {
     if (type === 'playlists') {
       return tracks.map((playlist: any, id: number) => {

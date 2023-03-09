@@ -10,7 +10,9 @@ const Favourites = () => {
       {!isEmpty(favouritesState) ? (
         <Grid tracks={favouritesState}></Grid>
       ) : (
-        <div>No favourites yet</div>
+        <div className='ms-5'>
+          No favourites yet. Search for songs and add to favs .
+        </div>
       )}
     </div>
   );

@@ -8,9 +8,9 @@ import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { Tooltip } from '../utilities/Tooltip';
 import find from 'lodash.find';
 import PlaylistCard from './Playlist/PlaylistCard';
+import clipText from '../helpers/clipText';
 
 const Card = ({ data, type = 'favourites' }: any) => {
-  console.log(type);
   const favouritesState = useAppSelector((state) => state.favourites);
 
   const getInitialState = useCallback(() => {
@@ -71,7 +71,7 @@ const Card = ({ data, type = 'favourites' }: any) => {
           </div>
         </div>
         <div className='card-body p-1 '>
-          <h5 className='card-title fs-6 w-100 '>{data.title}</h5>
+          <h5 className='card-title fs-6 w-100 '>{clipText(data.title)}</h5>
           <h6
             className='card-subtitle text-muted '
             style={{ fontSize: '12px' }}

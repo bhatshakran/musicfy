@@ -5,7 +5,7 @@ import { CgLogOut } from 'react-icons/cg';
 import { AiOutlineUser } from 'react-icons/ai';
 
 const Nav = () => {
-  const { keycloak, initialized } = useKeycloak();
+  const { keycloak } = useKeycloak();
 
   return (
     <div>

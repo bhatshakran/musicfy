@@ -111,7 +111,10 @@ const Search: React.FC = () => {
         )}
       </div>
       {/* result cards */}
-      <div className='overflow-scroll ' style={{ height: '500px' }}>
+      <div
+        className='overflow-scroll search-results mt-3'
+        style={{ height: '500px' }}
+      >
         <Grid tracks={resultTracks} nested='true' type='search' />
       </div>
     </div>

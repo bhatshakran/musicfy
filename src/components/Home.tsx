@@ -7,7 +7,6 @@ import { playlistsAction, searchAction } from '../types';
 import isEmpty from 'lodash.isempty';
 
 const Home = () => {
-  // const [tracks, setTracks] = useState([]);
   const dispatch = useContext(TabDispatchContext);
 
   const favouritesState = useAppSelector((state) => state.favourites);
@@ -37,7 +36,9 @@ const Home = () => {
             {!isEmpty(favs) && favs.length > 7 && <div>View All</div>}
           </h6>
         </div>
-        <hr className='text-ourpink'></hr>
+        <div className='ms-5'>
+          <hr className='text-mypink'></hr>
+        </div>
         {isEmpty(favs) ? (
           <div className='mx-5 d-flex flex-column justify-content-center align-items-center'>
             <BsExclamationCircleFill style={{ height: '50px', scale: '2' }} />
@@ -47,7 +48,7 @@ const Home = () => {
             </p>
             <button
               type='button'
-              className='btn border-ourpink opensansregular'
+              className='bg-white px-3 py-2 rounded-1 mypink opensansregular text-black'
               onClick={() => {
                 dispatch?.(searchAction);
               }}
@@ -63,7 +64,7 @@ const Home = () => {
       <div className='w-100 max-h-50'>
         <h5 className='ms-5 mt-2 opensansbold'>
           Your playlists
-          <hr className='text-ourpink'></hr>
+          <hr className='text-mypink'></hr>
         </h5>
         {isEmpty(playlists) ? (
           <div className='mx-5 d-flex flex-column justify-content-center align-items-center'>
@@ -74,7 +75,7 @@ const Home = () => {
             </p>
             <button
               type='button'
-              className='btn border-ourpink opensansregular'
+              className='bg-white px-3 py-2 rounded-1 mypink opensansregular'
               onClick={() => {
                 dispatch?.(playlistsAction);
               }}

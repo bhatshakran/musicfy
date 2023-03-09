@@ -114,3 +114,13 @@ $utilities: map-merge(
   background-color: rgba(255, 255, 255, 0.837);
   color: black;
 }
+
+.search-results::-webkit-scrollbar,
+.home::-webkit-scrollbar {
+  width: 0.2em;
+}
+.search-results::-webkit-scrollbar-thumb,
+.home::-webkit-scrollbar-thumb {
+  background-color: black;
+  outline: 1px solid black;
+}
