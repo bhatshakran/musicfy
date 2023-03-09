@@ -167,7 +167,7 @@ const Playlists = () => {
           <p>You dont have any playlists yet.</p>
           <button
             type='button'
-            className='rounded-1 bg-white mypink mb-5 px-2 py-1'
+            className='rounded-1 bg-white mypink mb-5 px-2 py-1 opensansregular'
             data-bs-toggle='modal'
             data-bs-target='#exampleModal'
           >
@@ -178,7 +178,7 @@ const Playlists = () => {
         <div className='mx-5'>
           <button
             type='button'
-            className='rounded-1 bg-white mypink mb-5 px-2 py-1'
+            className='rounded-1 bg-white mypink mb-5 px-2 py-1 opensansregular'
             data-bs-toggle='modal'
             data-bs-target='#exampleModal'
           >
