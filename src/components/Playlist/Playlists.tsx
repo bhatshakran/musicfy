@@ -74,7 +74,7 @@ const Playlists = () => {
               <div className='input-group '>
                 <input
                   type='text'
-                  className='form-control border border-ourpink'
+                  className='form-control  mypink'
                   placeholder='Playlist name'
                   aria-label='name'
                   aria-describedby='basic-addon1'
@@ -146,14 +146,14 @@ const Playlists = () => {
             <div className='modal-footer'>
               <button
                 type='button'
-                className='btn border-ourpink'
+                className='btn mypink'
                 data-bs-dismiss='modal'
               >
                 Close
               </button>
               <button
                 type='button'
-                className='btn bg-ourpink text-white'
+                className='btn bg-mypink text-white'
                 onClick={() => createPlaylist()}
               >
                 Save changes
