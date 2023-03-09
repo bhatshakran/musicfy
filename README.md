@@ -1,10 +1,7 @@
 # Musicfy
 
-<<<<<<< HEAD
 ![](<[https://github.com/Your_Repository_Name/Your_GIF_Name.gif](https://raw.githubusercontent.com/bhatshakran/musicfy/main/musicfygif1.gif.sb-c5398cc5-v9aMsx)>)
-=======
 ![](https://github.com/bhatshakran/musicfy/blob/main/musicfygif1.gif)
->>>>>>> 073b8436aa41c688c09d991290ab0b9be88d7ff2
 ![alt text](./src/images/rm.png)
 
 A single page web React app which utilizes the [Keycloak javascript adapter](https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter) and [Shazam API](https://rapidapi.com/apidojo/api/shazam/) for fetching music tracks.
