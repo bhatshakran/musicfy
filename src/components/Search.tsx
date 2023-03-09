@@ -56,7 +56,7 @@ const Search: React.FC = () => {
   };
 
   return (
-    <div className=' p-5 '>
+    <div className=' p-5 overflow-scroll' style={{ height: '600px' }}>
       <div className='input-group '>
         <span
           className='input-group-text border border-ourpink bg-white'

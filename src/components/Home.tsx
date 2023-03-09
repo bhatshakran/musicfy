@@ -34,7 +34,7 @@ const Home = () => {
             role='button'
             onClick={() => setShowMore(!showMore)}
           >
-            {!isEmpty(favs) && favs.length >= 7 && <div>View All</div>}
+            {!isEmpty(favs) && favs.length > 7 && <div>View All</div>}
           </h6>
         </div>
         <hr className='text-ourpink'></hr>

@@ -1,6 +1,6 @@
 # Musicfy
 
-![alt text](http://url/to/img.png)
+![alt text](./src/images/rm.png)
 A single page web React app which utilizes the [Keycloak javascript adapter](https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter) and [Shazam API](https://rapidapi.com/apidojo/api/shazam/) for fetching music tracks.
 You can create playlists, add songs to favourites and also search for songs.
 
