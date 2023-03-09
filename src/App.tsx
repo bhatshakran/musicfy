@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <>
       <ReactKeycloakProvider
         authClient={keycloak}
-        // initOptions={{ onLoad: 'login-required' }}
+        initOptions={{ onLoad: 'login-required' }}
       >
         <BrowserRouter>
           <Routes>

@@ -8,9 +8,9 @@ const Banner: React.FC = () => {
       <div className=' h-100  '>
         <img src={music} alt='' height={'160%'} />
       </div>
-      <div className='me-5'>
-        <p className='fs-2 mb-0'>Your favourite tunes</p>
-        <p className='fs-5 mb-0 mt-0 opacity-75'>
+      <div className=''>
+        <p className='fs-2 mb-0 banner-heading me-5'>Your favourite tunes</p>
+        <p className='fs-5 mb-0 mt-0 banner-subheading opacity-75 me-5'>
           All{' '}
           <span>
             <BsSun />

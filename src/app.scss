@@ -124,3 +124,24 @@ $utilities: map-merge(
   background-color: black;
   outline: 1px solid black;
 }
+
+@media screen and (max-width: '800px') {
+  .banner-heading {
+    font-size: 24px !important;
+    margin-right: 5px !important;
+  }
+  .banner-subheading {
+    font-size: 15px !important;
+    margin-right: 5px !important;
+  }
+
+  .sidebar {
+    width: 120px !important;
+    min-width: 100px !important;
+  }
+
+  .sidebarel {
+    padding-left: 0 !important;
+    font-size: 12px !important;
+  }
+}
