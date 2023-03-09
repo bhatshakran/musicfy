@@ -1,6 +1,6 @@
 import Card from './Card';
 
-const Grid = ({ tracks, nested = false, type }: any) => {
+const Grid = ({ tracks, nested = false, type, more = false }: any) => {
   if (type === 'playlists') {
     tracks.map((el: any) => console.log(el));
   }
@@ -11,10 +11,16 @@ const Grid = ({ tracks, nested = false, type }: any) => {
       });
     } else {
       return tracks.map((track: any, id: number) => {
-        if (id < 7) {
+        if (!more) {
+          if (id < 7) {
+            if (nested)
+              return <Card key={track.track.key} data={track.track} />;
+            else return <Card key={id} data={track} />;
+          } else return null;
+        } else {
           if (nested) return <Card key={track.track.key} data={track.track} />;
           else return <Card key={id} data={track} />;
-        } else return null;
+        }
       });
     }
   }

@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useRef, useState } from 'react';
 import { IoIosAddCircleOutline } from 'react-icons/io';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { addToPlaylistsLs } from '../../app/features/playlists/playlistsSlice';
@@ -13,6 +13,8 @@ const Playlists = () => {
   const [playlistSongs, setPlaylistSongs] = useState([]);
   const [plCreationErr, setPlCreationErr] = useState('');
   const dispatch = useAppDispatch();
+
+  const modalRef = useRef(null);
 
   const setPlaylist = (e: ChangeEvent<HTMLInputElement>) => {
     setPlaylistName(e.target.value);
@@ -40,9 +42,21 @@ const Playlists = () => {
       }
       console.log(obj);
       dispatch(addToPlaylistsLs(obj));
-      const modal = document.getElementById('exampleModal') as HTMLDivElement;
-      console.log(modal);
-      modal.style.display = 'hidden !important';
+
+      console.log(modalRef);
+
+      if (modalRef.current) {
+        const enforcedModal = modalRef.current as HTMLDivElement;
+
+        enforcedModal.style.display = 'none';
+
+        (
+          document.querySelector('.modal-backdrop.show') as HTMLDivElement
+        ).style.opacity = '0';
+        (
+          document.querySelector('.modal-backdrop.show') as HTMLDivElement
+        ).style.display = 'none';
+      }
     } else {
       setPlCreationErr(
         'Unable to create playlist.Please provide a playlist name'
@@ -53,7 +67,7 @@ const Playlists = () => {
   return (
     <div className='pt-3 '>
       <h2 className='opensansbold ms-5'>Your Playlists</h2>
-      <div className='modal ' id='exampleModal' tabIndex={-1}>
+      <div className='modal ' id='exampleModal' tabIndex={-1} ref={modalRef}>
         <div className='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
           <div className='modal-content bg-white'>
             <div className='modal-header'>
@@ -148,12 +162,12 @@ const Playlists = () => {
           </div>
         </div>
       </div>
-      {playlistsState && playlistsState.length === 0 ? (
+      {playlistsState && playlistsState?.length === 0 ? (
         <div className='px-5'>
           <p>You dont have any playlists yet.</p>
           <button
             type='button'
-            className='btn ourbtn mb-5'
+            className='rounded-1 bg-white mypink mb-5 px-2 py-1'
             data-bs-toggle='modal'
             data-bs-target='#exampleModal'
           >
@@ -164,7 +178,7 @@ const Playlists = () => {
         <div className='mx-5'>
           <button
             type='button'
-            className='btn ourbtn mb-5'
+            className='rounded-1 bg-white mypink mb-5 px-2 py-1'
             data-bs-toggle='modal'
             data-bs-target='#exampleModal'
           >

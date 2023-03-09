@@ -75,8 +75,16 @@ $utilities: map-merge(
   background-color: #d2a3ad;
 }
 
-.ourbtn {
-  border-color: #d2a3ad;
+.mypink {
+  border: 1px solid #d2a3ad;
+}
+
+.bg-mypink {
+  background-color: #d2a3ad;
+}
+
+.text-mypink {
+  color: #d2a3ad;
 }
 .hover-bg-white:hover {
   background-color: rgba(255, 255, 255, 0.8) !important;

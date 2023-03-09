@@ -14,8 +14,7 @@ const Home = () => {
   const playlistsState = useAppSelector((state) => state.playlists);
   const [favs, setFavs] = useState(() => favouritesState);
   const [playlists, setPlaylists] = useState(() => playlistsState);
-
-  console.log(favs);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     setFavs(favouritesState);
@@ -24,14 +23,21 @@ const Home = () => {
 
   return (
     <div
-      className='home d-flex flex-wrap  overflow-scroll '
-      style={{ height: '600px' }}
+      className='home d-flex flex-wrap  overflow-scroll'
+      style={{ height: '600px', paddingBottom: '100px' }}
     >
       <div className='w-100  max-h-50'>
-        <h5 className='ms-5 mt-5 opensansbold'>
-          Your favourites
-          <hr className='text-ourpink'></hr>
-        </h5>
+        <div className='d-flex justify-content-between align-items-center mt-5 w-100'>
+          <h5 className='ms-5  opensansbold'>Your favourites</h5>
+          <h6
+            className='me-5 text-mypink'
+            role='button'
+            onClick={() => setShowMore(!showMore)}
+          >
+            {!isEmpty(favs) && favs.length >= 7 && <div>View All</div>}
+          </h6>
+        </div>
+        <hr className='text-ourpink'></hr>
         {isEmpty(favs) ? (
           <div className='mx-5 d-flex flex-column justify-content-center align-items-center'>
             <BsExclamationCircleFill style={{ height: '50px', scale: '2' }} />
@@ -51,7 +57,7 @@ const Home = () => {
             </button>
           </div>
         ) : (
-          <Grid tracks={favs} type='favourites'></Grid>
+          <Grid tracks={favs} type='favourites' more={showMore}></Grid>
         )}
       </div>
       <div className='w-100 max-h-50'>

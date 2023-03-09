@@ -75,7 +75,7 @@ const Search: React.FC = () => {
         />
         <button
           type='button'
-          className='btn ourbtn text-white'
+          className='border-0 rounded-end bg-mypink text-white '
           onClick={() => searchForTerm(term)}
         >
           Search
@@ -95,7 +95,7 @@ const Search: React.FC = () => {
           suggestions.map((el: any, id: number) => {
             return (
               <div
-                className='hover-bg-light px-1'
+                className='hover-bg-light px-1 '
                 key={id}
                 role='button'
                 onClick={() => {
@@ -111,7 +111,7 @@ const Search: React.FC = () => {
         )}
       </div>
       {/* result cards */}
-      <div>
+      <div className='overflow-scroll ' style={{ height: '500px' }}>
         <Grid tracks={resultTracks} nested='true' type='search' />
       </div>
     </div>
