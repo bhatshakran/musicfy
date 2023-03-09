@@ -21,10 +21,9 @@ When the docker compose images are running the end result is a
 Keycloak server with a `Musicfy Realm` and a `musicfyclient` client
 defined in that realm.
 
-**Create a user in the Keycloak `Musicfy Realm` using the [Keycloak
-admin UI](http://localhost:8080/) so that you can view the `secured
+**Create a user on the Keycloak authentication screen so that you can view the `secured
 component` of the React UI** The password for the `admin` user can be found in the
-[docker-compose-run.yaml](docker-compose.yaml) file.
+[docker-compose.yaml](docker-compose.yaml) file.
 
 Visit the [React UI](http://localhost:3000/) with a browser and you should see a
 link to the `secured component`(homepage of Musicfy). Clicking on that link will re-direct your
