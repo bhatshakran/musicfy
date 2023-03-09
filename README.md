@@ -7,6 +7,8 @@
 A single page web React app which utilizes the [Keycloak javascript adapter](https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter) and [Shazam API](https://rapidapi.com/apidojo/api/shazam/) for fetching music tracks.
 You can create playlists, add songs to favourites and also search for songs.
 
+**IMPORTANT:You will need an .env file wherein you are going to add your shazam(music api) client key. Otherwise the app wont be able to function.**
+
 Docker compose is used to start react app(node-16) and Keycloak. Once its running you
 now can experiment with the React code and learn about Keycloak
 features using its administration UI.
